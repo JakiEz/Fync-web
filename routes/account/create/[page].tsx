@@ -10,6 +10,8 @@ import {
   savePersonalInfo,
 } from "@/utils/store/account.ts";
 import StoreData from "@/islands/StoreData.tsx";
+import { Store } from "fresh-store";
+import Add from "../../../islands/Add.tsx";
 
 type Data = {
   // session: Record<string, string>;
@@ -63,6 +65,7 @@ export const handler: Handlers<Data, WithSession> = {
 
 export default function CreateAccount(props: PageProps<Data>) {
   const page = Number(props.params.page);
+  const storePtr = Store.newPointer();
   return (
     <>
       <Navbar type="create" />
@@ -81,7 +84,8 @@ export default function CreateAccount(props: PageProps<Data>) {
         }]}
         step={page}
       />
-      <StoreData />
+      <StoreData ptr={storePtr} />
+      <Add ptr={storePtr} />
       <div class=" pt-10 h-screen p-O mx-auto mr-auto m ">
         <div class="flex items-center self-start ml-auto mr-auto justify-center flex-col max-w-xl ">
           {page == 1 ? <PersonalForm /> : <AccountForm />}

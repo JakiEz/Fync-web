@@ -18,11 +18,12 @@ import * as $11 from "./routes/oauth2/google/callback.tsx";
 import * as $12 from "./routes/oauth2/google/index.tsx";
 import * as $13 from "./routes/signup.tsx";
 import * as $$0 from "./islands/AccountForm.tsx";
-import * as $$1 from "./islands/Counter.tsx";
-import * as $$2 from "./islands/Input.tsx";
-import * as $$3 from "./islands/Login.tsx";
-import * as $$4 from "./islands/PersonalForm.tsx";
-import * as $$5 from "./islands/StoreData.tsx";
+import * as $$1 from "./islands/Add.tsx";
+import * as $$2 from "./islands/Counter.tsx";
+import * as $$3 from "./islands/Input.tsx";
+import * as $$4 from "./islands/Login.tsx";
+import * as $$5 from "./islands/PersonalForm.tsx";
+import * as $$6 from "./islands/StoreData.tsx";
 
 const manifest = {
   routes: {
@@ -43,11 +44,12 @@ const manifest = {
   },
   islands: {
     "./islands/AccountForm.tsx": $$0,
-    "./islands/Counter.tsx": $$1,
-    "./islands/Input.tsx": $$2,
-    "./islands/Login.tsx": $$3,
-    "./islands/PersonalForm.tsx": $$4,
-    "./islands/StoreData.tsx": $$5,
+    "./islands/Add.tsx": $$1,
+    "./islands/Counter.tsx": $$2,
+    "./islands/Input.tsx": $$3,
+    "./islands/Login.tsx": $$4,
+    "./islands/PersonalForm.tsx": $$5,
+    "./islands/StoreData.tsx": $$6,
   },
   baseUrl: import.meta.url,
   config,

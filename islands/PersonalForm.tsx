@@ -4,24 +4,31 @@ import { Button } from "@/components/Button.tsx";
 import { Input } from "@/components/Input.tsx";
 import IconPlus from "tabler/plus.tsx";
 import {
-  accountStore,
+  accountPtr,
+  // accountStore,
   PersonalInfo,
   personalInfoParser,
   savePersonalInfo,
 } from "@/utils/store/account.ts";
 import { CreateEmailUser, CreateGoogleUser } from "@/utils/type.ts";
+import { useStore } from "fresh-store";
 
 export default function PersonalForm() {
-  const { user, personalInfo: infoStore } = accountStore();
+  // const { user, personalInfo: infoStore } = accountStore();
   const [personalInfo, setPersonalInfo] = useState<
     PersonalInfo
-  >(infoStore || {} as PersonalInfo);
+  >({} as PersonalInfo);
+
+  useStore(personalInfo, {
+    pointer: accountPtr,
+    onChange: (newState) => setPersonalInfo(newState.personalInfo),
+  });
 
   return (
     <div class="flex flex-col items-center justify-center w-full h-full">
       <div className="p-4 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 w-full max-w-md min-w-min m-4">
         <div>
-          {JSON.stringify(infoStore)}
+          {JSON.stringify(personalInfo)}
         </div>
         <form
           class="flex flex-col gap-4 space-y-5"
